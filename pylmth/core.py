@@ -1,27 +1,31 @@
+from collections import namedtuple
 from BeautifulSoup import BeautifulSoup
 from pylmth.utils import *
 from pylmth.spec import *
 
 class DomObject(object):
 
-    def __init__(self, elem_type, open_tag='', close_tag='', supportsChildren=True):
+    def __init__(self, elem_type, prettify=True, unique_attrs=()):
+
+        if elem_type not in HTML_ELEMENTS:
+            raise ValueError("%s element not supported" % elem_type)
+
+        # set opening and closing tags based on spec
+        if elem_type in VOID_ELEMENTS:
+            self.open_tag = '<%s' % elem_type
+            self.close_tag = '>'
+            self.supports_children = False
+        else:
+            self.open_tag = '<%s>' % elem_type
+            self.close_tag = '</%s>' % elem_type
+            self.supports_children = True
+
         self.elem_type = elem_type
-        self.supportsChildren = supportsChildren
-        self.open_tag = open_tag
-        self.close_tag = close_tag
-        self.attributes = {}
+        self.prettify = prettify
+        self.attr = ElementAttributes(GLOBAL_ATTRIBUTES + unique_attrs)
         self.children = []
         self._inner_text =''
         self._inner_html=''
-
-    def attr(self, attr_name, value=None):
-        """ Set or get a value from the attributes dict."""
-        if attr_name not in self.attributes:
-            raise ValueError("%s does not support attribute '%s'" % (self.elem_type, attr_name))
-        if value is None:
-            return self.attributes[attr_name]
-        else:
-            self.attributes[attr_name] = value
 
     @property
     def inner_html(self):
@@ -41,20 +45,23 @@ class DomObject(object):
         self._inner_text = strip_tags(text, HTML_ELEMENTS)
 
 
-    def append_child(self,element):
-        """ Append or Nest another element to this element """
-        if not self.supportsChildren:
+    def append_child(self, *args):
+        """ Append or Nest another element or elements to this element """
+        if not self.supports_children:
             raise ValueError("%s does not support children" % self.elem_type)
-        self.children.append(element)
+        for arg in args:
+            self.children.append(arg)
 
     def __build_attrs(self):
         """ Formats the attributes dict into a string """
         output = []
-        for(key, value) in self.attributes.items():
+        for(key, value) in self.attr.asdict().items():
             if value != None and value != '':
                 output.append('%s="%s"' % (key,value))
 
-        return ' '.join(output)
+        outstr =  ' '.join(output)
+        outstr = outstr.replace('className', 'class') #hack!
+        return outstr
 
     def __get_formated_open_tag(self):
         """ Concatenates attributes into the proper spot """
@@ -73,14 +80,7 @@ class DomObject(object):
 
     def __str__(self):
         raw_html = BeautifulSoup(self.__render_element())
-        return raw_html.prettify()
-
-
-class Div(DomObject):
-
-    def __init__(self):
-        DomObject.__init__(self, 'div','<div>','</div>')
-
-
-
-
+        if self.prettify:
+            return raw_html.prettify()
+        else:
+            return raw_html.renderContents()
