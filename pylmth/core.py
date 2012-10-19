@@ -21,7 +21,9 @@ class DomObject(object):
 
         self.elem_type = elem_type
         self._prettify = prettify
-        self.attr = ElementAttributes(GLOBAL_ATTRIBUTES + unique_attrs)
+        self._unique_attrs = unique_attrs
+        self._custom_attrs = {} # a dict of attributes added via add_attr
+        self.attr = ElementAttributes(GLOBAL_ATTRIBUTES + self._unique_attrs)
         self.children = []
         self._inner_text =''
         self._inner_html=''
@@ -65,11 +67,27 @@ class DomObject(object):
             arg.parent = self
             self.children.append(arg)
 
+    def add_attr(self, name):
+        """
+            Insert an additional attribute ex: date-toggle="modal"
+            attrs with names that have hyphens or special chars(TBD) get turned to _ ex: date-toggle is available as DomObject.attr.date_toggle but print as they should
+        """
+        # clean the name
+        if "-" in name:
+            safe_name = name.replace("-", "_")
+        #store what it actually came in as
+        self._custom_attrs[safe_name] = name
+        self._unique_attrs += (safe_name,)
+        self.attr = ElementAttributes(GLOBAL_ATTRIBUTES + self._unique_attrs)
+
     def __build_attrs(self):
         """ Formats the attributes dict into a string """
         output = []
         for(key, value) in self.attr.asdict().items():
             if value != None and value != '':
+                # check for custom attrs
+                if key in self._custom_attrs:
+                    key = self._custom_attrs[key]
                 output.append('%s="%s"' % (key,value))
 
         outstr =  ' '.join(output)

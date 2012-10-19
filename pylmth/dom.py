@@ -438,9 +438,8 @@ class Table(DomObject):
         self.append_child(thead)
         return thead
 
-    def add_body(inner_text='', inner_html='', id='', className=''):
+    def add_body(self, inner_html='', id='', className=''):
         tbody = Tbody()
-        tbody.inner_text = inner_text
         tbody.inner_html = inner_html
         tbody.attr.id = id
         tbody.attr.className = className
@@ -454,7 +453,6 @@ class Table(DomObject):
         tr.attr.className = className
         self.append_child(tr)
         return tr
-
 
 
 class Caption(DomObject):
@@ -475,6 +473,14 @@ class Col(DomObject):
 class Tbody(DomObject):
     def __init__(self, prettify=True):
         DomObject.__init__(self, 'tbody', prettify)
+
+    def add_row(self, inner_html='', id='', className=''):
+        tr = Tr()
+        tr.inner_html = inner_html
+        tr.attr.id = id
+        tr.attr.className = className
+        self.append_child(tr)
+        return tr
 
 
 class Thead(DomObject):
@@ -499,13 +505,14 @@ class Tr(DomObject):
     def __init__(self, prettify=True):
         DomObject.__init__(self, 'tr', prettify)
 
-    def add_col(self, inner_text='', inner_html='', id='', className=''):
+    def add_col(self, inner_text='', inner_html='', id='', className='', colspan=''):
         if self.parent.elem_type =='thead':
             col = Th()
         else:
             col = Td()
         col.inner_text = inner_text
         col.inner_html = inner_html
+        col.attr.colspan=colspan
         col.attr.id = id
         col.attr.className = className
         self.append_child(col)
@@ -513,7 +520,7 @@ class Tr(DomObject):
 
 class Td(DomObject):
     def __init__(self, prettify=True):
-        DomObject.__init__(self, 'td', prettify,('colspan','rowspan','headers'))
+        DomObject.__init__(self, 'td', prettify, ('colspan','rowspan','headers', 'rel'))
 
 
 class Th(DomObject):

@@ -28,6 +28,14 @@ class TestDomObj(TestCase):
         d.attr.className = 'thing'
         self.assertEqual(d.attr.className, 'thing')
 
+    def test_dom_add_unique_attrs(self):
+        d = DomObject('div', prettify=False)
+        d.add_attr('my-attr')
+        d.attr.my_attr = "test"
+
+        self.assertEqual(str(d), '<div my-attr="test"></div>')
+
+
     def test_build_str_attrs(self):
         d = DomObject('div')
         d.attr.className = "thing"
@@ -87,12 +95,13 @@ class TestDomAbstractions(TestCase):
         tbl = Table(False)
         thead = tbl.add_header()
         row = thead.add_row()
-        row.add_col(inner_text='Beans')
+        row.add_col(inner_text='Beans', colspan='2')
         row.add_col(inner_text='Rice')
-        tr = tbl.add_row()
+        tbody = tbl.add_body()
+        tr = tbody.add_row()
         tr.add_col(inner_text='pinto', className='foo')
         tr.add_col(inner_text='jasmine', className='foo')
-        self.assertEqual(str(tbl), '<table><thead><tr><th>Beans</th><th>Rice</th></tr></thead><tr><td class="foo">pinto</td><td class="foo">jasmine</td></tr></table>')
+        self.assertEqual(str(tbl), '<table><thead><tr><th colspan="2">Beans</th><th>Rice</th></tr></thead><tbody><tr><td class="foo">pinto</td><td class="foo">jasmine</td></tr></tbody></table>')
 
 
 class TestUtils(TestCase):
