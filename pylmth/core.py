@@ -20,7 +20,7 @@ class DomObject(object):
             self.supports_children = True
 
         self.elem_type = elem_type
-        self.prettify = prettify
+        self._prettify = prettify
         self.attr = ElementAttributes(GLOBAL_ATTRIBUTES + unique_attrs)
         self.children = []
         self._inner_text =''
@@ -44,6 +44,16 @@ class DomObject(object):
         """ inner_text converts any strips any html in param:text"""
         self._inner_text = strip_tags(text, HTML_ELEMENTS)
 
+    @property
+    def prettify(self):
+        return self._prettify
+
+    @prettify.setter
+    def prettify(self, value):
+        self._prettify = value
+        # we have to update all the children
+        for child in self.children:
+            child.prettify = self._prettify
 
     def append_child(self, *args):
         """ Append or Nest another element or elements to this element """

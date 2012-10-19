@@ -95,8 +95,6 @@ class TestDomAbstractions(TestCase):
         self.assertEqual(str(tbl), '<table><thead><tr><th>Beans</th><th>Rice</th></tr></thead><tr><td class="foo">pinto</td><td class="foo">jasmine</td></tr></table>')
 
 
-
-
 class TestUtils(TestCase):
     def test_strip_tags(self):
         html = "<p>Good, <b>bad</b>, and <i>ug<b>l</b><u>y</u></i></p>"
