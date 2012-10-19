@@ -4,16 +4,18 @@ except ImportError:
     from distutils.core import setup
 
 config = {
-    'description': '',
-    'author': '',
+    'description': 'Create HTML markup with python',
+    'author': 'Angel Medrano',
     'url': '',
     'download_url': '',
-    'author_email': '',
-    'version': '0.1',
-    'install_requires': [],
-    'packages': [''],
-    'scripts': [],
-    'name': ''
+    'author_email': 'asmedrano@gmail.com',
+    'version': '0.1.0',
+    'install_requires': [
+        'BeautifulSoup >= 3.2.1'
+        ],
+    'packages': ['pylmth','pylmth.tests'],
+    'scripts': ['bin/build_dom_classes.py'],
+    'name': 'pylmth'
 }
 
 setup(**config)

@@ -1,555 +1,591 @@
 from pylmth.core import DomObject
 
-class Div(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'div')
-
 
 class Html(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'html')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'html', prettify)
 
 
 class Head(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'head')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'head', prettify)
 
 
 class Title(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'title')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'title', prettify)
 
 
 class Base(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'base')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'base', prettify)
 
 
 class Link(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'link')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'link', prettify)
 
 
 class Meta(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'meta')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'meta', prettify)
 
 
 class Style(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'style')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'style', prettify)
 
 
 class Script(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'script')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'script', prettify)
 
 
 class Noscript(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'noscript')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'noscript', prettify)
 
 
 class Body(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'body')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'body', prettify)
 
 
 class Section(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'section')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'section', prettify)
 
 
 class Nav(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'nav')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'nav', prettify)
 
 
 class Article(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'article')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'article', prettify)
 
 
 class Aside(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'aside')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'aside', prettify)
 
 
 class H1(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'h1')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'h1', prettify)
 
 
 class H2(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'h2')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'h2', prettify)
 
 
 class H3(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'h3')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'h3', prettify)
 
 
 class H4(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'h4')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'h4', prettify)
 
 
 class H5(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'h5')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'h5', prettify)
 
 
 class H6(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'h6')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'h6', prettify)
 
 
 class Hgroup(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'hgroup')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'hgroup', prettify)
 
 
 class Header(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'header')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'header', prettify)
 
 
 class Footer(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'footer')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'footer', prettify)
 
 
 class Address(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'address')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'address', prettify)
 
 
 class P(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'p')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'p', prettify)
 
 
 class Hr(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'hr')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'hr', prettify)
 
 
 class Pre(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'pre')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'pre', prettify)
 
 
 class Blockquote(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'blockquote')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'blockquote', prettify)
 
 
 class Ol(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'ol')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'ol', prettify)
 
 
 class Ul(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'ul')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'ul', prettify)
 
+    def add_li(self):
+        li = Li()
+        self.append_child(li)
+        return li
+
+    def add_ol(self):
+        ol = Ol()
+        self.append_child(ol)
+        return ol
 
 class Li(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'li')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'li', prettify)
 
 
 class Dl(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'dl')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'dl', prettify)
 
 
 class Dt(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'dt')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'dt', prettify)
 
 
 class Dd(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'dd')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'dd', prettify)
 
 
 class Figure(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'figure')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'figure', prettify)
 
 
 class Figcaption(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'figcaption')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'figcaption', prettify)
 
 
 class Div(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'div')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'div', prettify)
 
 
 class A(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'a')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'a',prettify, unique_attrs=('href', 'target','rel'))
 
 
 class Em(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'em')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'em', prettify)
 
 
 class Strong(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'strong')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'strong', prettify)
 
 
 class Small(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'small')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'small', prettify)
 
 
 class S(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 's')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 's', prettify)
 
 
 class Cite(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'cite')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'cite', prettify)
 
 
 class Q(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'q')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'q', prettify)
 
 
 class Dfn(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'dfn')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'dfn', prettify)
 
 
 class Abbr(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'abbr')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'abbr', prettify)
 
 
 class Data(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'data')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'data', prettify)
 
 
 class Time(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'time')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'time', prettify)
 
 
 class Code(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'code')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'code', prettify)
 
 
 class Var(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'var')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'var', prettify)
 
 
 class Samp(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'samp')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'samp', prettify)
 
 
 class Kbd(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'kbd')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'kbd', prettify)
 
 
 class Sub(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'sub')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'sub', prettify)
 
 
 class Sup(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'sup')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'sup', prettify)
 
 
 class I(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'i')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'i', prettify)
 
 
 class B(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'b')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'b', prettify)
 
 
 class U(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'u')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'u', prettify)
 
 
 class Mark(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'mark')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'mark', prettify)
 
 
 class Ruby(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'ruby')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'ruby', prettify)
 
 
 class Rt(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'rt')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'rt', prettify)
 
 
 class Rp(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'rp')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'rp', prettify)
 
 
 class Bdi(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'bdi')
-
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'bdi', prettify)
 
 class Bdo(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'bdo')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'bdo', prettify)
 
 
 class Span(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'span')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'span', prettify)
 
 
 class Br(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'br')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'br', prettify)
 
 
 class Wbr(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'wbr')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'wbr', prettify)
 
 
 class Ins(DomObject):
-    def __init__(self):
+    def __init__(self, prettify=True):
         DomObject.__init__(self, 'ins')
 
 
 class Del(DomObject):
-    def __init__(self):
+    def __init__(self, prettify=True):
         DomObject.__init__(self, 'del')
 
 
 class Img(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'img', unique_attrs=('src', 'width', 'height'))
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'img',prettify, unique_attrs=('src', 'width', 'height'))
 
 class Iframe(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'iframe')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'iframe', prettify)
 
 
 class Embed(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'embed')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'embed', prettify)
 
 
 class Object(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'object')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'object', prettify)
 
 
 class Param(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'param')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'param', prettify)
 
 
 class Video(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'video')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'video', prettify)
 
 
 class Audio(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'audio')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'audio', prettify)
 
 
 class Source(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'source')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'source', prettify)
 
 
 class Track(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'track')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'track', prettify)
 
 
 class Canvas(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'canvas')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'canvas', prettify)
 
 
 class Map(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'map')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'map', prettify)
 
 
 class Area(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'area')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'area', prettify)
 
 
 class Svg(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'svg')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'svg', prettify)
 
 
 class Math(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'math')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'math', prettify)
 
 
 class Table(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'table')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'table', prettify,('border',))
 
 
 class Caption(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'caption')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'caption', prettify)
 
 
 class Colgroup(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'colgroup')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'colgroup', prettify)
 
 
 class Col(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'col')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'col', prettify)
 
 
 class Tbody(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'tbody')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'tbody', prettify)
 
 
 class Thead(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'thead')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'thead', prettify)
 
 
 class Tfoot(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'tfoot')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'tfoot', prettify)
 
 
 class Tr(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'tr')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'tr', prettify)
 
 
 class Td(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'td')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'td', prettify,('colspan','rowspan','headers'))
 
 
 class Th(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'th')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'th', prettify, ('colspan','rowspan','headers', 'scope'))
 
 
 class Form(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'form')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'form', prettify)
 
 
 class Fieldset(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'fieldset')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'fieldset', prettify)
 
 
 class Legend(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'legend')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'legend', prettify)
 
 
 class Label(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'label')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'label', prettify)
 
 
 class Input(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'input')
+    def __init__(self, prettify=True):
+        unique_attrs = (
+                'value',
+                'type',
+                'size',
+                'src',
+                'step',
+                'required',
+                'readonly',
+                'placeholder',
+                'pattern',
+                'name',
+                'mulitiple',
+                'min',
+                'maxlength',
+                'max',
+                'list',
+                'height',
+                'width',
+                'formtarget',
+                'formnovalidate',
+                'formmethod',
+                'formenctype',
+                'formaction',
+                'form',
+                'disabled',
+                'checked',
+                'autofocus',
+                'alt',
+                'align',
+                'accept'
+
+                )
+        DomObject.__init__(self, 'input', prettify, unique_attrs)
 
 
 class Button(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'button')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'button', prettify)
 
 
 class Select(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'select')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'select', prettify)
 
 
 class Datalist(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'datalist')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'datalist', prettify)
 
 
 class Optgroup(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'optgroup')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'optgroup', prettify)
 
 
 class Option(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'option')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'option', prettify)
 
 
 class Textarea(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'textarea')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'textarea', prettify)
 
 
 class Keygen(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'keygen')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'keygen', prettify)
 
 
 class Output(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'output')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'output', prettify)
 
 
 class Progress(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'progress')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'progress', prettify)
 
 
 class Meter(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'meter')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'meter', prettify)
 
 
 class Summary(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'summary')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'summary', prettify)
 
 
 class Command(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'command')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'command', prettify)
 
 
 class Menu(DomObject):
-    def __init__(self):
-        DomObject.__init__(self, 'menu')
+    def __init__(self, prettify=True):
+        DomObject.__init__(self, 'menu', prettify)
 

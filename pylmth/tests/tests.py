@@ -31,7 +31,6 @@ class TestDomObj(TestCase):
     def test_build_str_attrs(self):
         d = DomObject('div')
         d.attr.className = "thing"
-        print d
         expected = BeautifulSoup('<div class="thing"></div>')
         self.assertEqual(str(d),expected.prettify())
 
@@ -69,8 +68,18 @@ class TestDomAbstractions(TestCase):
         img.attr.id = "theimg"
         img.attr.src = "myimg.jpg"
         div.append_child(h1, img)
+        expected = BeautifulSoup('<div id="hi"><h1>Hello World!</h1><img id="theimg" src="myimg.jpg" /></div>')
+        self.assertEqual(str(div),expected.prettify())
 
-        print div
+    def test_elems_with_helpers(self):
+        """Most elements just have global attributes and such but these have helper methods built in"""
+        #ul
+        ul = Ul(False)
+        for i in ['hi', 'there']:
+            li = ul.add_li()
+            li.inner_text = i
+
+        self.assertEqual(str(ul),"<ul><li>hi</li><li>there</li></ul>")
 
 class TestUtils(TestCase):
     def test_strip_tags(self):

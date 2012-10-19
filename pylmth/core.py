@@ -6,7 +6,6 @@ from pylmth.spec import *
 class DomObject(object):
 
     def __init__(self, elem_type, prettify=True, unique_attrs=()):
-
         if elem_type not in HTML_ELEMENTS:
             raise ValueError("%s element not supported" % elem_type)
 
@@ -50,6 +49,8 @@ class DomObject(object):
         if not self.supports_children:
             raise ValueError("%s does not support children" % self.elem_type)
         for arg in args:
+            # set this childs "prettify" to the same as the parent
+            arg.prettify = self.prettify
             self.children.append(arg)
 
     def __build_attrs(self):
@@ -73,7 +74,7 @@ class DomObject(object):
             return self.open_tag + ' ' + self.__build_attrs()
 
     def __build_children(self):
-        return "\n".join([str(child) for child in self.children])
+        return "".join([str(child) for child in self.children])
 
     def __render_element(self):
         return self.__get_formated_open_tag() + self.inner_text + self.inner_html + self.__build_children() + self.close_tag
