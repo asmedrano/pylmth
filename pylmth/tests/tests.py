@@ -76,10 +76,26 @@ class TestDomAbstractions(TestCase):
         #ul
         ul = Ul(False)
         for i in ['hi', 'there']:
-            li = ul.add_li()
-            li.inner_text = i
-
+            ul.add_li(inner_text=i)
         self.assertEqual(str(ul),"<ul><li>hi</li><li>there</li></ul>")
+
+        ol = Ol(False)
+        for i in ['hi', 'there']:
+            ol.add_li(inner_text=i)
+        self.assertEqual(str(ol),"<ol><li>hi</li><li>there</li></ol>")
+
+        tbl = Table(False)
+        thead = tbl.add_header()
+        row = thead.add_row()
+        row.add_col(inner_text='Beans')
+        row.add_col(inner_text='Rice')
+        tr = tbl.add_row()
+        tr.add_col(inner_text='pinto', className='foo')
+        tr.add_col(inner_text='jasmine', className='foo')
+        self.assertEqual(str(tbl), '<table><thead><tr><th>Beans</th><th>Rice</th></tr></thead><tr><td class="foo">pinto</td><td class="foo">jasmine</td></tr></table>')
+
+
+
 
 class TestUtils(TestCase):
     def test_strip_tags(self):

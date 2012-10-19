@@ -25,6 +25,7 @@ class DomObject(object):
         self.children = []
         self._inner_text =''
         self._inner_html=''
+        self.parent = None # a reference to the parent element of this element
 
     @property
     def inner_html(self):
@@ -51,6 +52,7 @@ class DomObject(object):
         for arg in args:
             # set this childs "prettify" to the same as the parent
             arg.prettify = self.prettify
+            arg.parent = self
             self.children.append(arg)
 
     def __build_attrs(self):

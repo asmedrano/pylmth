@@ -145,20 +145,27 @@ class Ol(DomObject):
     def __init__(self, prettify=True):
         DomObject.__init__(self, 'ol', prettify)
 
+    def add_li(self,inner_text='',inner_html='',id='',className=''):
+        li = Li()
+        li.inner_text=inner_text
+        li.inner_html=inner_html
+        li.attr.id=id
+        li.attr.className=className
+        self.append_child(li)
+        return li
 
 class Ul(DomObject):
     def __init__(self, prettify=True):
         DomObject.__init__(self, 'ul', prettify)
 
-    def add_li(self):
+    def add_li(self,inner_text='',inner_html='',id='',className=''):
         li = Li()
+        li.inner_text=inner_text
+        li.inner_html=inner_html
+        li.attr.id=id
+        li.attr.className=className
         self.append_child(li)
         return li
-
-    def add_ol(self):
-        ol = Ol()
-        self.append_child(ol)
-        return ol
 
 class Li(DomObject):
     def __init__(self, prettify=True):
@@ -422,6 +429,33 @@ class Table(DomObject):
     def __init__(self, prettify=True):
         DomObject.__init__(self, 'table', prettify,('border',))
 
+    def add_header(self, inner_text='', inner_html='', id='', className=''):
+        thead = Thead()
+        thead.inner_text = inner_text
+        thead.inner_html = inner_html
+        thead.attr.id = id
+        thead.attr.className = className
+        self.append_child(thead)
+        return thead
+
+    def add_body(inner_text='', inner_html='', id='', className=''):
+        tbody = Tbody()
+        tbody.inner_text = inner_text
+        tbody.inner_html = inner_html
+        tbody.attr.id = id
+        tbody.attr.className = className
+        self.append_child(tbody)
+        return tbody
+
+    def add_row(self, inner_html='', id='', className=''):
+        tr = Tr()
+        tr.inner_html = inner_html
+        tr.attr.id = id
+        tr.attr.className = className
+        self.append_child(tr)
+        return tr
+
+
 
 class Caption(DomObject):
     def __init__(self, prettify=True):
@@ -447,6 +481,14 @@ class Thead(DomObject):
     def __init__(self, prettify=True):
         DomObject.__init__(self, 'thead', prettify)
 
+    def add_row(self, inner_html='', id='', className=''):
+        tr = Tr()
+        tr.inner_html = inner_html
+        tr.attr.id = id
+        tr.attr.className = className
+        self.append_child(tr)
+        return tr
+
 
 class Tfoot(DomObject):
     def __init__(self, prettify=True):
@@ -457,6 +499,17 @@ class Tr(DomObject):
     def __init__(self, prettify=True):
         DomObject.__init__(self, 'tr', prettify)
 
+    def add_col(self, inner_text='', inner_html='', id='', className=''):
+        if self.parent.elem_type =='thead':
+            col = Th()
+        else:
+            col = Td()
+        col.inner_text = inner_text
+        col.inner_html = inner_html
+        col.attr.id = id
+        col.attr.className = className
+        self.append_child(col)
+        return col
 
 class Td(DomObject):
     def __init__(self, prettify=True):
