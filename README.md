@@ -78,6 +78,38 @@ for i in ['hi', 'there']:
 </ul>
 ```
 
+```
+tbl = Table()
+thead = tbl.add_header()
+row = thead.add_row()
+row.add_col(inner_text='Beans', colspan='2')
+row.add_col(inner_text='Rice')
+tbody = tbl.add_body()
+tr = tbody.add_row()
+tr.add_col(inner_text='pinto', className='foo')
+tr.add_col(inner_text='jasmine', className='foo')
+```
+Outputs
+```
+<table>
+    <thead>
+      <tr>
+        <th colspan="2">Beans</th>
+
+        <th>Rice</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td class="foo">pinto</td>
+
+        <td class="foo">jasmine</td>
+      </tr>
+    </tbody>
+  </table>
+```
+
 
 ## Disclaimer
 I based html tags and attributes off of the html5 spec and while I've automated some of it, adding attributes is tedious.
