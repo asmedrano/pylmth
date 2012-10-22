@@ -34,23 +34,25 @@ print d
  </p>
 </div>
 ```
+You can turn off pretty print
 ```
-# you can turn off pretty print
 d.prettify = False # or when you create it d = Div(prettify=False)
 
 # outputs <div><p><a href="#"> google.com</a></p></div>
-
-# you can set html attributes like so
+```
+You can set html attributes like so
+```
 d.attr.id = 'wrapper'
 d.attr.className = 'themainclass'
-
-print d
 ```
+Result
 ```
 <div id="wrapper" class="themainclass">
 </div>
 ```
 
 ## Disclaimer
-I dont know how much overhead this will add to rendering templates in something like Django. That's yet to be determined. Also, I based html tags and attributes off of the html5 spec and while i've automated some of it, adding attributes is tedious. That being said, not all element's attributes are complete.
+I based html tags and attributes off of the html5 spec and while I've automated some of it, adding attributes is tedious.
+All tags have GLOBAL ATTRIBUTES applied http://www.w3.org/html/wiki/Attributes/_Global
+That being said, not all element's attributes are complete.
 
