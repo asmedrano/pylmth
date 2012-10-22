@@ -50,6 +50,34 @@ Result
 <div id="wrapper" class="themainclass">
 </div>
 ```
+You can set custom attributes to dom elements.
+Custom attrs must be set BEFORE all other attrs.
+``` 
+d = Div()
+d.add_attr('data-foo')
+# its now accessible as an attribute via some magics
+d.attr.data_foo = 'bar'
+print d
+# outuputs
+<div data-foo="bar">
+</div>
+```
+Some elements have helper methods built in.
+```
+ul = Ul()
+for i in ['hi', 'there']:
+    ul.add_li(inner_text=i) # this is the helper
+#outputs
+<ul>
+   <li>
+    hi
+   </li>
+   <li>
+    there
+   </li>
+</ul>
+```
+
 
 ## Disclaimer
 I based html tags and attributes off of the html5 spec and while I've automated some of it, adding attributes is tedious.
