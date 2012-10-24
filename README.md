@@ -34,23 +34,85 @@ print d
  </p>
 </div>
 ```
+You can turn off pretty print
 ```
-# you can turn off pretty print
 d.prettify = False # or when you create it d = Div(prettify=False)
 
 # outputs <div><p><a href="#"> google.com</a></p></div>
-
-# you can set html attributes like so
+```
+You can set html attributes like so
+```
 d.attr.id = 'wrapper'
 d.attr.className = 'themainclass'
-
-print d
 ```
+Result
 ```
 <div id="wrapper" class="themainclass">
 </div>
 ```
+You can set custom attributes to dom elements.
+Custom attrs must be set BEFORE all other attrs.
+``` 
+d = Div()
+d.add_attr('data-foo')
+# its now accessible as an attribute via some magics
+d.attr.data_foo = 'bar'
+print d
+# outuputs
+<div data-foo="bar">
+</div>
+```
+Some elements have helper methods built in.
+```
+ul = Ul()
+for i in ['hi', 'there']:
+    ul.add_li(inner_text=i) # this is the helper
+#outputs
+<ul>
+   <li>
+    hi
+   </li>
+   <li>
+    there
+   </li>
+</ul>
+```
+
+```
+tbl = Table()
+thead = tbl.add_header()
+row = thead.add_row()
+row.add_col(inner_text='Beans', colspan='2')
+row.add_col(inner_text='Rice')
+tbody = tbl.add_body()
+tr = tbody.add_row()
+tr.add_col(inner_text='pinto', className='foo')
+tr.add_col(inner_text='jasmine', className='foo')
+```
+Outputs
+```
+<table>
+    <thead>
+      <tr>
+        <th colspan="2">Beans</th>
+
+        <th>Rice</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td class="foo">pinto</td>
+
+        <td class="foo">jasmine</td>
+      </tr>
+    </tbody>
+  </table>
+```
+
 
 ## Disclaimer
-I dont know how much overhead this will add to rendering templates in something like Django. That's yet to be determined. Also, I based html tags and attributes off of the html5 spec and while i've automated some of it, adding attributes is tedious. That being said, not all element's attributes are complete.
+I based html tags and attributes off of the html5 spec and while I've automated some of it, adding attributes is tedious.
+All tags have GLOBAL ATTRIBUTES applied http://www.w3.org/html/wiki/Attributes/_Global
+That being said, not all element's attributes are complete.
 
