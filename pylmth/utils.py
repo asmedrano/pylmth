@@ -1,4 +1,4 @@
-from BeautifulSoup import BeautifulSoup, NavigableString
+from bs4 import BeautifulSoup, NavigableString
 
 def strip_tags(html, invalid_tags):
     soup = BeautifulSoup(html)

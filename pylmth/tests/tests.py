@@ -9,8 +9,7 @@ from pylmth.core import *
 from pylmth.dom import *
 from pylmth.utils import *
 from pylmth.spec import *
-from BeautifulSoup import BeautifulSoup
-
+from bs4 import BeautifulSoup
 
 class TestDomObj(TestCase):
 
@@ -21,7 +20,7 @@ class TestDomObj(TestCase):
         reg = DomObject('div', prettify=False)
         void = DomObject('img', prettify=False)
         self.assertEqual(str(reg),'<div></div>')
-        self.assertEqual(str(void),'<img />')
+        self.assertEqual(str(void),'<img/>')
 
     def test_dom_attributes(self):
         d = DomObject('div')

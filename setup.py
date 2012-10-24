@@ -11,7 +11,7 @@ config = {
     'author_email': 'asmedrano@gmail.com',
     'version': '0.1.0',
     'install_requires': [
-        'BeautifulSoup >= 3.2.1'
+        'beautifulsoup4>=4.1.3'
         ],
     'packages': ['pylmth','pylmth.tests'],
     'scripts': ['bin/build_dom_classes.py'],

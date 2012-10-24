@@ -1,5 +1,5 @@
 from collections import namedtuple
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 from pylmth.utils import *
 from pylmth.spec import *
 
