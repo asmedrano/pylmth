@@ -60,9 +60,10 @@ class TestDomObj(TestCase):
     def test_build_str_children(self):
         d = DomObject('div')
         p = DomObject('p')
+        p.inner_html = u'&plusmn' # unicode
         d.append_child(p)
-        expected = BeautifulSoup('<div><p></p></div>')
-        self.assertEqual(str(d),expected.prettify())
+        expected = BeautifulSoup('<div><p>&plusmn</p></div>')
+        self.assertEqual(str(d),str(expected.prettify().encode('utf-8')))
 
 class TestDomAbstractions(TestCase):
 

@@ -113,6 +113,7 @@ class DomObject(object):
     def __str__(self):
         raw_html = BeautifulSoup(self.__render_element())
         if self.prettify:
-            return raw_html.prettify()
+            out =  u''.join(raw_html.prettify())
+            return out.encode('utf-8')
         else:
             return raw_html.renderContents()
