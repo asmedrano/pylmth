@@ -199,7 +199,7 @@ class Figcaption(DomObject):
 
 class Div(DomObject):
     def __init__(self, prettify=True):
-        DomObject.__init__(self, 'div', prettify, unique_attrs=('rel'))
+        DomObject.__init__(self, 'div', prettify, unique_attrs=('rel',))
 
 
 class A(DomObject):
