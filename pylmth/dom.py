@@ -530,7 +530,14 @@ class Th(DomObject):
 
 class Form(DomObject):
     def __init__(self, prettify=True):
-        DomObject.__init__(self, 'form', prettify)
+        DomObject.__init__(self, 'form', prettify, ('method',
+                                                    'action',
+                                                    'autocomplete',
+                                                    'novalidate',
+                                                    'accept-charset',
+                                                    'enctype',
+                                                    'name',
+                                                    'target'))
 
 
 class Fieldset(DomObject):
