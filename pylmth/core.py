@@ -71,7 +71,6 @@ class DomObject(object):
         """
             Insert an additional attribute ex: date-toggle="modal"
             attrs with names that have hyphens or special chars(TBD) get turned to _ ex: date-toggle is available as DomObject.attr.date_toggle but print as they should
-            BUG: custom_attrs need to be added before any other attributes value gets set
         """
         # clean the name
         if "-" in name:
@@ -79,7 +78,8 @@ class DomObject(object):
         #store what it actually came in as
         self._custom_attrs[safe_name] = name
         self._unique_attrs += (safe_name,)
-        self.attr = ElementAttributes(GLOBAL_ATTRIBUTES + self._unique_attrs)
+        #self.attr = ElementAttributes(GLOBAL_ATTRIBUTES + self._unique_attrs)
+        self.attr.update_slots((safe_name,))
 
     def __build_attrs(self):
         """ Formats the attributes dict into a string """

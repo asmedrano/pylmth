@@ -51,7 +51,7 @@ Result
 </div>
 ```
 You can set custom attributes to dom elements.
-Custom attrs must be set BEFORE all other attrs.
+
 ``` 
 d = Div()
 d.add_attr('data-foo')

@@ -19,6 +19,9 @@ def strip_tags(html, invalid_tags):
 
 class ElementAttributes(object):
     """
+    ----------------------------------------
+    This class came from Eliot aka: Salty Crane
+    -----------------------------------------
     An object to hold data. Motivated by a desire for a mutable namedtuple with
     default values. To use, subclass, and define __slots__.
 
@@ -44,9 +47,16 @@ class ElementAttributes(object):
     default_value = None
 
     def __init__(self, slots, *args, **kwargs):
-        self.__slots__ = slots
+        self.__slots__ = ()
+        self.update_slots(slots, *args, **kwargs)
+
+    def update_slots(self, slots, *args, **kwargs):
+        self.__slots__ += slots
         for att in self.__slots__:
-            setattr(self, att, self.default_value)
+            try:
+                getattr(self, att)
+            except AttributeError:
+                setattr(self, att, self.default_value)
         # Set attributes passed in as arguments
         self.set(*args, **kwargs)
 

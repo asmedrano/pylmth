@@ -11,6 +11,24 @@ from pylmth.utils import *
 from pylmth.spec import *
 from bs4 import BeautifulSoup
 
+class TestElementAttributes(TestCase):
+
+    def test_slots(self):
+        ATTRS = ('x','y')
+        el = ElementAttributes(ATTRS)
+        el.x = 1
+        el.y = 2
+        self.assertEqual(el.x, 1)
+
+        #try adding element
+        NEW_ATTRS = ('z',)
+        el.update_slots(NEW_ATTRS)
+        el.z = 5
+        self.assertEqual(el.z, 5)
+        self.assertEqual(el.x, 1) # to make sure our existing attrs remain and are not overriden or something
+        self.assertEqual(el.y, 2)
+
+
 class TestDomObj(TestCase):
 
     def test_dom_elem_valid(self):
@@ -29,10 +47,13 @@ class TestDomObj(TestCase):
 
     def test_dom_add_unique_attrs(self):
         d = DomObject('div', prettify=False)
+        d.attr.id = 'mydiv'
         d.add_attr('my-attr')
         d.attr.my_attr = "test"
-
-        self.assertEqual(str(d), '<div my-attr="test"></div>')
+        self.assertEqual(str(d), '<div id="mydiv" my-attr="test"></div>')
+        d.add_attr('my-attr-two')
+        d.attr.my_attr_two = 'zingbog'
+        self.assertEqual(str(d), '<div id="mydiv" my-attr="test" my-attr-two="zingbog"></div>')
 
 
     def test_build_str_attrs(self):
