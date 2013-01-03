@@ -75,6 +75,8 @@ class DomObject(object):
         # clean the name
         if "-" in name:
             safe_name = name.replace("-", "_")
+        else:
+            safe_name = name
         #store what it actually came in as
         self._custom_attrs[safe_name] = name
         self._unique_attrs += (safe_name,)
