@@ -80,13 +80,12 @@ class TestDomObj(TestCase):
         self.assertEqual(str(d),expected.prettify())
 
     def test_build_str_children(self):
-        d = DomObject('div')
-        p = DomObject('p')
-        p.inner_html = '&plusmn'
-        p.inner_html =u'broadband—and'
+        d = DomObject('div', prettify=False)
+        p = DomObject('p',)
+        p.inner_html = u'&plusmn'
+        p.inner_html += u'broadband—and'
         d.append_child(p)
-        expected = BeautifulSoup('<div><p>&plusmn</p></div>')
-        self.assertEqual(str(d),str(expected.prettify().encode('utf-8')))
+        self.assertEqual('<div><p>&amp;plusmnbroadband;—and</p></div>', str(d))
 
 class TestDomAbstractions(TestCase):
 
@@ -101,6 +100,13 @@ class TestDomAbstractions(TestCase):
         div.append_child(h1, img)
         expected = BeautifulSoup('<div id="hi"><h1>Hello World!</h1><img id="theimg" src="myimg.jpg" /></div>')
         self.assertEqual(str(div),expected.prettify())
+
+    def test_unicode(self):
+        div = Div(prettify=False)
+        div.inner_html = u'broadband—and'
+        self.assertEqual(str(div), """<div>broadband—and</div>""")
+        div.inner_html = 'broadband—and'
+        self.assertEqual(str(div), """<div>broadband—and</div>""")
 
     def test_elems_with_helpers(self):
         """Most elements just have global attributes and such but these have helper methods built in"""

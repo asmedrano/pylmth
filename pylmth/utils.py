@@ -14,7 +14,7 @@ def strip_tags(html, invalid_tags):
 
             tag.replaceWith(s)
 
-    return soup.renderContents()
+    return u''+soup.renderContents()
 
 
 class ElementAttributes(object):
