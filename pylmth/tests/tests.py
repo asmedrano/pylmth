@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 Run tests like so:
     python -m unittest discover
@@ -81,7 +82,8 @@ class TestDomObj(TestCase):
     def test_build_str_children(self):
         d = DomObject('div')
         p = DomObject('p')
-        p.inner_html = u'&plusmn' # unicode
+        p.inner_html = '&plusmn'
+        p.inner_html =u'broadband—and'
         d.append_child(p)
         expected = BeautifulSoup('<div><p>&plusmn</p></div>')
         self.assertEqual(str(d),str(expected.prettify().encode('utf-8')))
